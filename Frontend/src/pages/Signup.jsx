@@ -61,7 +61,7 @@ export default function Signup({ setToast }) {
       setToast({ message: "Signup Successful 🎉", type: "success" });
       setTimeout(() => setToast({ message: "", type: "" }), 4000);
 
-      setTimeout(() => navigate("/login"), 2000);
+      setTimeout(() => navigate("/verify"), 2000);
     } catch (error) {
       setToast({ message: "Signup Failed ❌", type: "error" });
       setTimeout(() => setToast({ message: "", type: "" }), 4000);

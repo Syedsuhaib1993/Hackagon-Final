@@ -92,7 +92,7 @@ export const Login = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid Credentials" });
     }
-    if (!User.isactive) {
+    if (!user.isactive) {
       return res.status(400).json({ message: "Verify your OTP through Email" });
     }
     const token = await jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
