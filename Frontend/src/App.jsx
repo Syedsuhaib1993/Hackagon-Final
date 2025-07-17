@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
 import Verify from "./pages/Verify";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const [toast, setToast] = useState({ message: "", type: "" });
@@ -33,7 +34,7 @@ const App = () => {
 
       <Routes>
         <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<><Navbar setToast={setToast}/><Home/></>} />
           <Route path="/admin" element={<Admin />} />
         </Route>
         <Route element={<PublicRoutes />}>

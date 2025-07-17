@@ -26,7 +26,7 @@ export default function Login({ setToast }) {
       if (setToast) {
         setToast({ message: "Login Successful ✅", type: "success" });
         setTimeout(() => setToast({ message: "", type: "" }), 3000);
-        // setTimeout(() => navigate("/"), 2000);
+        setTimeout(() => navigate("/"), 2000);
       }
     } catch (error) {
       if (setToast) {
