@@ -18,14 +18,15 @@ export default function Login({ setToast }) {
         `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/login`,
         { email, password }
       );
-
-      localStorage.setItem("token", response.data.data);
+      console.log(response.data);
+      
+      localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       if (setToast) {
         setToast({ message: "Login Successful ✅", type: "success" });
         setTimeout(() => setToast({ message: "", type: "" }), 3000);
-        setTimeout(() => navigate("/"), 2000);
+        // setTimeout(() => navigate("/"), 2000);
       }
     } catch (error) {
       if (setToast) {

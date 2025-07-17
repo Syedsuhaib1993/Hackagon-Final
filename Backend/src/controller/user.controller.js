@@ -95,13 +95,13 @@ export const Login = async (req, res) => {
     if (!user.isactive) {
       return res.status(400).json({ message: "Verify your OTP through Email" });
     }
-    const token = await jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
+    const token = await jwt.sign({ id: user._id, email: user.email }, process.env.SECRET_KEY, {
       expiresIn: "1h",
     });
 
     return res
       .status(200)
-      .json({ message: "User logged in successfully", token });
+      .json({ message: "User logged in successfully", token,user});
   } catch (error) {
     return res
       .status(500)
