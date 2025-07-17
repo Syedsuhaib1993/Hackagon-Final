@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const PublicRoutes = () => {
      const Auth = !!localStorage.getItem('token')
-    console.log(Auth);
+    // console.log(Auth);
   return (
    Auth? <Navigate to={'/'}/>:<Outlet/>
   )
