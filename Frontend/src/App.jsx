@@ -9,6 +9,13 @@ import PrivateRoutes from "./routes/PrivateRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
 import Verify from "./pages/Verify";
 import Navbar from "./components/Navbar";
+import Profile from "./components/AdminDashboard/Profile";
+import Tables from "./components/AdminDashboard/Tables";
+import Forms from "./components/AdminDashboard/Forms";
+import AddPost from "./components/AdminDashboard/AddPost";
+import Dashboard from "./components/AdminDashboard/Dashboard";
+import Blog from "./components/AdminDashboard/Blog";
+import AdminRoutes from "./routes/AdminRoutes";
 
 const App = () => {
   const [toast, setToast] = useState({ message: "", type: "" });
@@ -36,6 +43,14 @@ const App = () => {
         <Route element={<PrivateRoutes />}>
           <Route path="/" element={<><Navbar setToast={setToast}/><Home/></>} />
           <Route path="/admin" element={<Admin />} />
+        <Route element={<AdminRoutes/>}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/add-post" element={<AddPost />} />
+        <Route path="/forms" element={<Forms />} />
+        <Route path="/tables" element={<Tables />} />
+        <Route path="/profile" element={<Profile />} />
+        </Route>
         </Route>
         <Route element={<PublicRoutes />}>
           <Route path="/signup" element={<Signup setToast={setToast} />} />

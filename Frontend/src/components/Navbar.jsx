@@ -109,9 +109,9 @@ export default function Navbar({ setToast }) {
                     {userData.email}
                   </p>
                 )}
-                {userData._id === "68712818921d01185148102f" && (
+                {userData._id === "6878ed287d8a813b1c252dff" && (
                   <button
-                    onClick={() => navigate("/admin")}
+                    onClick={() => navigate("/dashboard")}
                     className="w-full text-left text-indigo-600 px-4 py-2 hover:bg-gray-100 border-b font-medium"
                   >
                     Admin Panel
