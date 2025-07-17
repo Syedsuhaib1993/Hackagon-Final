@@ -103,9 +103,9 @@ export default function Navbar({ setToast }) {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg py-2 z-50 transition-all animate-fade-in">
+              <div className="absolute  right-0 mt-2 w-auto bg-white text-black rounded shadow-lg py-2 z-50 transition-all animate-fade-in">
                 {userData.email && (
-                  <p className="px-4 py-2 border-b text-sm font-medium">
+                  <p className="px-4  py-2 border-b text-sm font-medium">
                     {userData.email}
                   </p>
                 )}

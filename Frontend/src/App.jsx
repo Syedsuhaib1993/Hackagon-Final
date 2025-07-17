@@ -23,7 +23,7 @@ const App = () => {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
-            className={`fixed top-6 right-6 z-50 px-6 py-4 rounded shadow-lg text-white font-semibold
+            className={`fixed bottom-6 right-6 z-50 px-6 py-4 rounded shadow-lg text-white font-semibold
               ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}
             `}
           >

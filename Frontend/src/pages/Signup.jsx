@@ -110,7 +110,7 @@ export default function Signup({ setToast }) {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="ABC"
+            placeholder="Enter Name"
             required
           />
         </motion.div>
@@ -124,7 +124,7 @@ export default function Signup({ setToast }) {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="xyz@example.com"
+            placeholder="Enter Email"
             required
           />
         </motion.div>
@@ -138,7 +138,7 @@ export default function Signup({ setToast }) {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="0312 2356890"
+            placeholder="Enter Phone Number"
             required
           />
         </motion.div>
@@ -152,7 +152,7 @@ export default function Signup({ setToast }) {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="********"
+            placeholder="Enter Password"
             required
           />
         </motion.div>
@@ -210,7 +210,7 @@ export default function Signup({ setToast }) {
           whileTap={{ scale: 0.98 }}
           disabled={loading}
           className={`w-full py-3 rounded-lg ${
-            loading ? "bg-gray-400" : "bg-purple-600 hover:bg-purple-500"
+            loading ? "bg-gray-600" : "bg-purple-600 hover:bg-purple-500"
           } text-white font-bold text-lg transition flex items-center justify-center`}
         >
           {loading ? (

@@ -18,13 +18,13 @@ export default function Login({ setToast }) {
         `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/login`,
         { email, password }
       );
-      console.log(response.data);
+      console.log(response.data.message);
       
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       if (setToast) {
-        setToast({ message: "Login Successful ✅", type: "success" });
+        setToast({ message: response.data.message, type: "success" });
         setTimeout(() => setToast({ message: "", type: "" }), 3000);
         setTimeout(() => navigate("/"), 2000);
       }
@@ -66,7 +66,7 @@ export default function Login({ setToast }) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Welcome Back
+          Login
         </motion.h2>
 
         <motion.div custom={1} variants={fieldVariants} className="mb-5">
@@ -78,7 +78,7 @@ export default function Login({ setToast }) {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="john@example.com"
+            placeholder="Enter Email"
             required
           />
         </motion.div>
@@ -92,7 +92,7 @@ export default function Login({ setToast }) {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
+            placeholder="Enter Password"
             required
           />
         </motion.div>
