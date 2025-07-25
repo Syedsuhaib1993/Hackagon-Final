@@ -17,27 +17,27 @@ export const Signup = async (req, res) => {
     }
     const hashpass = await bcrypt.hash(password, 10);
     const otp = Math.floor(1000 + Math.random() * 9000);
-    const transporter = nodemailer.createTransport({
-      service: "Gmail",
-      auth: {
-        user: "syedsuhaibhussani@gmail.com",
-        pass: "rfrochzexzatzphs",
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-    const mailOptions = {
-      from: "syedsuhaibhussani@gmail.com",
-      to: email,
-      subject: "Verify your email",
-      text: `Your OTP is ${otp}`,
-    };
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return res.status(400).json({ message: "Error sending email" });
-      }
-    });
+    // const transporter = nodemailer.createTransport({
+    //   service: "Gmail",
+    //   auth: {
+    //     user: "syedsuhaibhussani@gmail.com",
+    //     pass: "rfrochzexzatzphs",
+    //   },
+    //   tls: {
+    //     rejectUnauthorized: false,
+    //   },
+    // });
+    // const mailOptions = {
+    //   from: "syedsuhaibhussani@gmail.com",
+    //   to: email,
+    //   subject: "Verify your email",
+    //   text: `Your OTP is ${otp}`,
+    // };
+    // transporter.sendMail(mailOptions, (error, info) => {
+    //   if (error) {
+    //     return res.status(400).json({ message: "Error sending email" });
+    //   }
+    // });
 
     const user = new User({
       name,
@@ -48,6 +48,63 @@ export const Signup = async (req, res) => {
       otp,
     });
     await user.save();
+        // NODEMAILER
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: "syedsuhaibhussani@gmail.com",
+        pass: "rfrochzexzatzphs",
+      },
+      tls: {
+    rejectUnauthorized: false,
+  },
+    });
+const mailOption = {
+  from: "syedsuhaibhussani@gmail.com",
+  to: email,
+  subject: "Welcome to LoanBank - Verify Your Account",
+  html: `
+    <div style="
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 40px 20px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #15A08D 0%, #0D1A3D 100%);
+      color: #ffffff;
+    ">
+      <h2 style="color: #ffffff; font-size: 28px; margin-bottom: 10px;">
+        Welcome to <span style="color: #FFD700;">LoanBank</span>
+      </h2>
+      <p style="font-size: 16px; line-height: 1.6;">
+        Thank you for signing up with LoanBank! We’re excited to help you manage your finances better.
+      </p>
+      <p style="font-size: 16px; margin: 20px 0;">
+        Use the OTP below to verify your account:
+      </p>
+      <h1 style="
+        background: #FFD700;
+        color: #0D1A3D;
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        letter-spacing: 6px;
+        font-size: 32px;
+      ">
+        ${OTP}
+      </h1>
+      <p style="font-size: 14px; margin-top: 30px; line-height: 1.5;">
+        This OTP is valid for the next 10 minutes. If you didn’t request this, you can safely ignore this email.
+      </p>
+      <p style="font-size: 14px; margin-top: 20px;">
+        Best regards,<br/>
+        The LoanBank Team
+      </p>
+    </div>
+  `,
+};
+
+    await transporter.sendMail(mailOption);
     return res.status(201).json({ message: "User created successfully", user });
   } catch (error) {
     return res
