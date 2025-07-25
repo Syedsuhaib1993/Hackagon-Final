@@ -21,7 +21,7 @@ export const Signup = async (req, res) => {
       service: "Gmail",
       auth: {
         user: "syedsuhaibhussani@gmail.com",
-        pass: process.env.PASSWORD,
+        pass: "rfrochzexzatzphs",
       },
       tls: {
         rejectUnauthorized: false,
