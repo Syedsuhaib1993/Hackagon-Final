@@ -91,7 +91,7 @@ const mailOption = {
         letter-spacing: 6px;
         font-size: 32px;
       ">
-        ${OTP}
+        ${otp}
       </h1>
       <p style="font-size: 14px; margin-top: 30px; line-height: 1.5;">
         This OTP is valid for the next 10 minutes. If you didn’t request this, you can safely ignore this email.
