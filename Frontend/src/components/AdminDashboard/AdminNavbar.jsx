@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 export default function AdminNavbar() {
   return (
@@ -11,6 +13,7 @@ export default function AdminNavbar() {
           className="border rounded px-2 py-1"
         />
         <button className="bg-blue-600 text-white px-4 py-2 rounded">New Post</button>
+        <button className="bg-green-600 text-white px-4 py-2 rounded"><Link to="/">Return to Site</Link></button>
       </div>
     </header>
   );

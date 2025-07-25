@@ -13,12 +13,12 @@ export default function Sidebar() {
   const location = useLocation();
 
   const links = [
+    { to: "/profile", label: "User Profile", icon: <AiOutlineUser /> },
     { to: "/dashboard", label: "Dashboard", icon: <AiFillDashboard /> },
-    { to: "/blog", label: "Blog Overview", icon: <MdOutlineArticle /> },
     { to: "/add-post", label: "Add New Post", icon: <AiFillEdit /> },
+    { to: "/blog", label: "Blog Overview", icon: <MdOutlineArticle /> },
     { to: "/forms", label: "Forms & Components", icon: <AiOutlineForm /> },
     { to: "/tables", label: "Tables", icon: <AiOutlineTable /> },
-    { to: "/profile", label: "User Profile", icon: <AiOutlineUser /> },
   ];
 
   return (
