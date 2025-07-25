@@ -20,7 +20,7 @@ export const Signup = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: process.env.EMAIL,
+        user: "syedsuhaibhussani@gmail.com",
         pass: process.env.PASSWORD,
       },
       tls: {
@@ -28,7 +28,7 @@ export const Signup = async (req, res) => {
       },
     });
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: "syedsuhaibhussani@gmail.com",
       to: email,
       subject: "Verify your email",
       text: `Your OTP is ${otp}`,
